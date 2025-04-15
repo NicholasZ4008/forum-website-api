@@ -1,9 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 
-class EmailDb : DbContext
+public class EmailDb : DbContext
 {
-    public EmailDb(DbContextOptions<EmailDb> options)
-        : base(options) { }
+    public EmailDb(DbContextOptions options) : base(options) { }
 
-    public DbSet<Email> Emails => Set<Email>();
+    public DbSet<Email> Emails { get; set; }
 }

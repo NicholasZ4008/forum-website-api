@@ -1,10 +1,15 @@
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
+
+DotNetEnv.Env.Load();
 
 //CORS
 var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 //Builder BoilerPlate
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddEnvironmentVariables();
 
 builder.Services.AddCors(options =>
 {
@@ -20,7 +25,7 @@ builder.Services.AddCors(options =>
 });
 
 
-builder.Services.AddDbContext<EmailDb>(opt => opt.UseInMemoryDatabase("EmailList"));
+builder.Services.AddDbContext<EmailDb>(opt => opt.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection")));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddEndpointsApiExplorer();
