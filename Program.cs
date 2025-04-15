@@ -25,7 +25,7 @@ builder.Services.AddCors(options =>
 });
 
 
-builder.Services.AddDbContext<EmailDb>(opt => opt.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection")));
+builder.Services.AddDbContext<EmailDb>(opt => opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddEndpointsApiExplorer();

@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace forumAPI.Migrations
 {
     [DbContext(typeof(EmailDb))]
-    [Migration("20250411235326_InitialCreate")]
+    [Migration("20250415173851_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
