@@ -17,7 +17,10 @@ builder.Services.AddCors(options =>
                       policy  =>
                       {
                           policy.WithOrigins("http://localhost:3000",
-                                              "https://theforumuniversity.com")
+                                              "https://theforumuniversity.com",
+                                              "https://www.theforumuniversity.com",
+                                              "https://api.theforumuniversity.com"
+                                              )
                                               .AllowAnyHeader()
                                               .AllowAnyMethod();
                                         
