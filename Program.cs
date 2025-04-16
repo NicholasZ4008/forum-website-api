@@ -43,6 +43,8 @@ builder.Services.AddOpenApiDocument(config =>
     config.Version = "v1";
 });
 
+builder.Services.AddHealthChecks();
+
 var app = builder.Build();
 
 //allow specific origins
@@ -59,6 +61,9 @@ if (app.Environment.IsDevelopment())
         config.DocExpansion = "list";
     });
 }
+
+//coolify health check
+app.MapHealthChecks("/health");
 
 //CRUD Functions
 app.MapGet("/emails", async(EmailDb db) =>
