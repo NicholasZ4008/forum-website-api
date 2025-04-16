@@ -51,11 +51,6 @@ var app = builder.Build();
 app.UseRouting();
 app.UseCors(MyAllowSpecificOrigins);
 
-
-//pre-flight"
-app.MapMethods("/emails", ["OPTIONS"], () => Results.Ok());
-app.MapMethods("/emails/{id}", ["OPTIONS"] , () => Results.Ok());
-
 if (app.Environment.IsDevelopment())
 {
     app.UseOpenApi();
