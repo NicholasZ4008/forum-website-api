@@ -48,7 +48,13 @@ builder.Services.AddHealthChecks();
 var app = builder.Build();
 
 //allow specific origins
+app.UseRouting();
 app.UseCors(MyAllowSpecificOrigins);
+
+
+//pre-flight"
+app.MapMethods("/emails", ["OPTIONS"], () => Results.Ok());
+app.MapMethods("/emails/{id}", ["OPTIONS"] , () => Results.Ok());
 
 if (app.Environment.IsDevelopment())
 {
