@@ -52,8 +52,8 @@ app.UseRouting();
 app.UseCors(MyAllowSpecificOrigins);
 
 //preflight handlers:
-app.MapMethods("/emails", new[] { "OPTIONS" }, () => Results.Ok());
-app.MapMethods("/emails/{id}", new[] { "OPTIONS" }, () => Results.Ok());
+// app.MapMethods("/emails", new[] { "OPTIONS" }, () => Results.Ok());
+// app.MapMethods("/emails/{id}", new[] { "OPTIONS" }, () => Results.Ok());
 
 if (app.Environment.IsDevelopment())
 {
@@ -118,5 +118,14 @@ app.MapDelete("/emails/{id}", async (int id, EmailDb db) =>
 
     return Results.NotFound();
 });
+
+app.MapGet("/test-connect", async (EmailDb db) =>
+{
+    var canConnect = await db.Database.CanConnectAsync();
+    return canConnect
+        ? Results.Ok("Connected successfully to PostgreSQL!")
+        : Results.Problem("Cannot connect to PostgreSQL", statusCode: StatusCodes.Status503ServiceUnavailable);
+});
+
 
 app.Run();

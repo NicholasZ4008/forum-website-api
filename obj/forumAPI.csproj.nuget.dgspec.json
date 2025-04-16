@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "U:\\Code\\forum-website-api\\forumAPI.csproj": {}
+    "/Users/nicholaszhang/projects/forumAPI/forumAPI.csproj": {}
   },
   "projects": {
-    "U:\\Code\\forum-website-api\\forumAPI.csproj": {
+    "/Users/nicholaszhang/projects/forumAPI/forumAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "U:\\Code\\forum-website-api\\forumAPI.csproj",
+        "projectUniqueName": "/Users/nicholaszhang/projects/forumAPI/forumAPI.csproj",
         "projectName": "forumAPI",
-        "projectPath": "U:\\Code\\forum-website-api\\forumAPI.csproj",
-        "packagesPath": "C:\\Users\\nicholas.zhang\\.nuget\\packages\\",
-        "outputPath": "U:\\Code\\forum-website-api\\obj\\",
+        "projectPath": "/Users/nicholaszhang/projects/forumAPI/forumAPI.csproj",
+        "packagesPath": "/Users/nicholaszhang/.nuget/packages/",
+        "outputPath": "/Users/nicholaszhang/projects/forumAPI/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\nicholas.zhang\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/nicholaszhang/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -74,7 +68,7 @@
             },
             "NSwag.AspNetCore": {
               "target": "Package",
-              "version": "[14.0.3, )"
+              "version": "[14.3.0, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
@@ -104,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
