@@ -67,6 +67,13 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+//automate db migrations
+using (var scope = app.Services.CreateScope()) {
+    var db = scope.ServiceProvider.GetRequiredService<EmailDb>();
+    db.Database.Migrate();
+}
+
+
 //coolify health check
 app.MapHealthChecks("/health");
 
