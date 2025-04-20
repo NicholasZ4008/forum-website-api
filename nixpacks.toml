@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["...", "curl"]
+nixpkgsArchive = "aa319c6f1e150efc6c21326979d40088c28564a1"
+
+[phases.build]
+cmds = [
+  "dotnet publish -c Release -o out"
+]
+
+[start]
+cmd = "cd out && dotnet forumAPI.dll --urls=http://0.0.0.0:3000"
