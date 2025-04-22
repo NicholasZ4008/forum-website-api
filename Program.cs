@@ -67,12 +67,11 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-//automate db migrations
+//automate db migrations for prod deployment
 using (var scope = app.Services.CreateScope()) {
     var db = scope.ServiceProvider.GetRequiredService<EmailDb>();
     db.Database.Migrate();
 }
-
 
 //coolify health check
 app.MapHealthChecks("/health");
@@ -134,5 +133,27 @@ app.MapGet("/test-connect", async (EmailDb db) =>
         : Results.Problem("Cannot connect to PostgreSQL", statusCode: StatusCodes.Status503ServiceUnavailable);
 });
 
+app.MapGet("/export", async (EmailDb db, HttpResponse response) =>
+{
+    var emails = await db.Emails.ToListAsync();
+    
+    // Set response headers
+    response.ContentType = "text/csv";
+    response.Headers.Append("Content-Disposition", "attachment; filename=emails.csv");
+    
+    // Create CSV content - using async methods
+    await response.StartAsync();
+    
+    // Write header
+    await response.WriteAsync("Id,EmailName\n");
+    
+    // Write data rows - all using async methods
+    foreach (var email in emails)
+    {
+        await response.WriteAsync($"{email.Id},{email.EmailName}\n");
+    }
+    
+    await response.CompleteAsync();
+});
 
 app.Run();
